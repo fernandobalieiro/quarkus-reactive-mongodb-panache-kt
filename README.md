@@ -1,11 +1,20 @@
-# Quarkus Rective MongoDB in Kotlin
+# Quarkus Reactive MongoDB in Kotlin
 
-The goal of this project was to study how to create an application using Quarkus with Rective MongoDB Panache framework using **Kotlin**.
+The goal of this project was to study how to create a Web Application using Quarkus, Reactive MongoDB Panache framework in **Kotlin**.
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
+## An important note:
+In order to have some annotations working properly in Kotlin, sometimes it's necessary to add `@field` annotation.  
+This was the case for persisting fields using snake case in `MongoDB`, where it was necessary to `@BsonProperty` annotation as follows:
+```kotlin 
+       @field: BsonProperty("birth_date")
+       var birthDate: LocalDateTime? = LocalDateTime.now()
+``` 
+
+This is documented [here](https://quarkus.io/guides/kotlin), under `CDI @Inject with Kotlin` section.
 
 ## Running the application in dev mode
 
